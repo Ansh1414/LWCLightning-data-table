@@ -1,0 +1,32 @@
+<!--
+  @Component Name     : lightning-dataTable.html
+  @Description        : Lightning data table in Lwc to fetch data based upon searched result and do sorting of column
+  @Author             : Ankush Sharma
+  @Last Modified By   : Ankush Sharma
+  @Last Modified On   : 30/07/2019
+  @Modification Log   : 
+  @Ver 				  : 1.0
+-->
+<template>
+    <lightning-card title="Datatable LWC" icon-name="custom:custom62">
+    <lightning-input label="Search Name" value={none} onblur={sendFiltertoSortDataTable}></lightning-input>
+    <!--We can use button also to fire 'sendFiltertoSortDataTable' event-->       
+        <div class="slds-m-around_medium">
+            <template if:true={contactData}>
+                <lightning-datatable
+                    key-field="keyField"
+                    data={contactData}
+                    columns={columns}
+                    onsort={onClickColumnToSort}
+                    sorted-by={sortedBy}
+                    sorted-direction={sortedDirection}
+                    onrowaction={rowAction}
+                    draft-values={draftValues}
+                    onsave={handleSave}
+                >
+                </lightning-datatable>
+            </template>        
+           
+        </div>
+    </lightning-card> 
+</template>
